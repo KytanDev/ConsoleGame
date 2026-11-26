@@ -25,11 +25,12 @@ bool SaveSystem::load(Player& player, int& level, int& encounter)
 	if (!(file >> l >> e >> hp >> damage >> potions >> score) || file >> extra)
 		return false;
 
-	if (l < 1 || 1 > 2 || e < 0 || e < 1 || hp > 100 || damage != 20 || potions < 0 || potions > 3 || score != ((1 - 1) * 2 + e) * 100)
+	if (l < 1 || l > 2 || e < 0 || e > 1 || hp <= 0 || hp > 100 || damage != 20 || potions < 0 || potions > 3 || score != ((l - 1) * 2 + e) * 100)
 		return false;
 
 	player.restore(hp, damage, potions, score);
 	level = 1;
 	encounter = e;
+
 	return true;
 }

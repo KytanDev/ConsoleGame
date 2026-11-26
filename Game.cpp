@@ -13,7 +13,7 @@ static int readChoice(int min, int max)
 		int choice; 
 		char extra;
 		if (input >> choice && !(input >> extra) && choice >= min && choice <= max)
-			return;
+			return choice;
 		std::cout << "Invalid choice. Try again: ";
 	}
 	return -1;
@@ -93,7 +93,7 @@ bool Game::combat(Enemy& enemy)
 		std::cout << "\n" << enemy.getName() << " HP: " << enemy.getHealth() << " | Your HP: " << player.getHealth() << " | Potions: " << player.getPotions() << "\n1. Attack\n2. Heavy attack\n3. Heal\n>";
 		int choice = readChoice(1, 3);
 		if (choice == -1)
-			return;
+			return false;
 		if (choice == 3)
 		{
 			if (!player.heal())
