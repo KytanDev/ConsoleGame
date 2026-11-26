@@ -47,7 +47,7 @@ void Game::play()
 {
 	while (player.isAlive() && level <= 2)
 	{
-		std::cout << "\nLevel " << level << " Encounter " << encounter + 1 << "HP: " << player.getHealth() << " Score: " << player.getScore() << "\n1. Fight\n2. Save\n3. Main menu\n> ";
+		std::cout << "\nLevel " << level << " Encounter " << encounter + 1 << "\nHP: " << player.getHealth() << " Score: " << player.getScore() << "\n1. Fight\n2. Save\n3. Main menu\n> ";
 		int choice = readChoice(1, 3);
 		if (choice == -1 || choice == 3)
 			return;
